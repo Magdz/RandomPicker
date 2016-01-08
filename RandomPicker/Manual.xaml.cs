@@ -10,25 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace RandomPicker
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Manual.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Manual : Window
     {
-        public MainWindow()
+        public Manual()
         {
             InitializeComponent();
         }
 
-        private void Manual_Clicked(object sender, RoutedEventArgs e)
+        private void Manual_Add_Clicked(object sender, RoutedEventArgs e)
         {
-            Manual manual = new Manual();
-            manual.Show();
+            if(Manual_Input.Text != null)
+            {
+                Program.AddPick(Manual_Input.Text);
+                Manual_Input.Text = null;
+            }
         }
     }
 }

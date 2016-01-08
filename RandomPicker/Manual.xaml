@@ -1,0 +1,14 @@
+﻿<Window x:Class="RandomPicker.Manual"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RandomPicker"
+        mc:Ignorable="d"
+        Title="Manual" Height="130" Width="300" ResizeMode="NoResize" Background="#FF898785" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Grid Margin="0">
+        <TextBox x:Name="Manual_Input" HorizontalAlignment="Left" Height="23" Margin="10,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <Button x:Name="Manual_Add" Content="Add Record" Margin="195,30,10,0" Height="24" VerticalAlignment="Top" Click="Manual_Add_Clicked"/>
+        <Label x:Name="Record_Label" Content="Successfully Added" HorizontalAlignment="Left" Margin="148,59,0,0" VerticalAlignment="Top" Width="136" FontSize="14.667" Visibility="Hidden"/>
+    </Grid>
+</Window>
