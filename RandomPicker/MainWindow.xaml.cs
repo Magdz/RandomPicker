@@ -30,5 +30,16 @@ namespace RandomPicker
             Manual manual = new Manual();
             manual.Show();
         }
+
+        private void Pick_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Program.getLength() == 0)
+            {
+                Picked_Record.Text = null;
+                return;
+            }
+            int index = (new Random().Next()) % (Program.getLength());
+            Picked_Record.Text = Program.getPick(index);
+        }
     }
 }
