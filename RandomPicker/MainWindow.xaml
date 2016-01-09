@@ -22,7 +22,7 @@
         <DockPanel HorizontalAlignment="Left" Height="20" LastChildFill="False" VerticalAlignment="Top" Width="294">
             <Menu x:Name="menu" Height="20" Width="296">
                 <MenuItem Header="Manual" Click="Manual_Clicked"/>
-                <MenuItem Header="Load" />
+                <MenuItem Header="Load" Click="Load_Clicked" />
             </Menu>
         </DockPanel>
 
