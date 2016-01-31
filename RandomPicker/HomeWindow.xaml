@@ -14,64 +14,72 @@
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,34,0,0" To="0,800,0,0" AccelerationRatio=".5" Duration="0:0:0.8"/>
         </Storyboard>
     </Window.Resources>
-   
-    <Grid Background="#FF0063B1" Height="633" VerticalAlignment="Top">
-        <Grid x:Name="menuGrid" HorizontalAlignment="Left" Height="546" VerticalAlignment="Top" Width="239" Background="#FFEEEEEE" Margin="0,800,0,0" Visibility="Visible">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="208*"/>
-                <ColumnDefinition Width="31*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RenderTransform>
-                <TranslateTransform />
-            </Grid.RenderTransform>
-            <Button x:Name="Create_Button" Content="  Create" HorizontalAlignment="Left" Height="47" Margin="0,32,0,0" VerticalAlignment="Top" Width="239" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="17.333" HorizontalContentAlignment="Left" Grid.ColumnSpan="2"/>
-            <Button x:Name="Load_Button" Content="  Load" HorizontalAlignment="Left" Height="47" Margin="0,79,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="button2_Click"/>
-            <Button x:Name="View_Button" Content="  View" HorizontalAlignment="Left" Height="47" Margin="0,126,0,0" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" FontSize="17.333" Grid.ColumnSpan="2"/>
-            <Button x:Name="Save_Button" Content="  Save" HorizontalAlignment="Left" Height="47" Margin="0,173,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
-            <GridSplitter x:Name="gridSplitter" Height="238" Margin="0,113,88.576,0" VerticalAlignment="Top" Width="3" RenderTransformOrigin="0.5,0.5" Background="#7F575757">
-                <GridSplitter.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="89.733"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </GridSplitter.RenderTransform>
-            </GridSplitter>
-            <Label x:Name="label" Content="Recents" HorizontalAlignment="Left" Margin="6,236,0,0" VerticalAlignment="Top" FontSize="16"/>
-            <StackPanel HorizontalAlignment="Left" Height="264" Margin="6,274,0,0" VerticalAlignment="Top" Width="225" Background="#33818080" Grid.ColumnSpan="2"/>
-        </Grid>
-        <Grid x:Name="titlebar_Grid" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="794" Background="#FF575757" MouseDown="titlebar_Grid_MouseDown">
-            <Button x:Name="closeButton" Content="" HorizontalAlignment="Left" Margin="761,7,0,0" VerticalAlignment="Top" Width="24" BorderBrush="{x:Null}" Height="23" Click="closeButton_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/icon-close-128.gif"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="button" Content="" HorizontalAlignment="Left" Margin="727,5,0,0" VerticalAlignment="Top" Width="29" Height="28" BorderBrush="{x:Null}" Click="button_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/maximize.gif"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="button5" Content="" HorizontalAlignment="Left" Margin="696,7,0,0" VerticalAlignment="Top" Width="24" Height="23" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <ImageBrush ImageSource="Assets/minimize-windows-icon.gif" Stretch="Uniform"/>
-                </Button.Background>
-            </Button>
-        </Grid>
 
-        <Rectangle Fill="#FFEEEEEE" HorizontalAlignment="Left" Height="54" Margin="0,579,0,0" Stroke="#1EEEEEEE" VerticalAlignment="Top" Width="825"/>
-        <TextBox x:Name="Manual_Input" HorizontalAlignment="Left" Height="37" Margin="98,588,0,0" TextWrapping="Wrap" Text="Quick Add" VerticalAlignment="Top" Width="306" BorderBrush="#FF575757" Background="Transparent" Foreground="#FF939393" BorderThickness="2" FontSize="20" GotFocus="Manual_Input_GotFocus"/>
-        <Button x:Name="addButton" Content="+" HorizontalAlignment="Left" Margin="404,588,0,8" Width="50" Background="#FF575757" Foreground="#FFEEEEEE" BorderBrush="#FF575757" FontSize="40" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Padding="1,-13,1,1" Click="addButton_Click" Height="37"/>
-        <Button x:Name="burgerIcon" Content="" HorizontalAlignment="Left" Height="37" Margin="17,588,0,0" VerticalAlignment="Top" Width="44" BorderBrush="{x:Null}" Click="burgerIcon_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/HamburgerIcon.gif"/>
-            </Button.Background>
-        </Button>
-        <Label x:Name="label1" Content="Random Picker" HorizontalAlignment="Right" Margin="0,4,652,0" VerticalAlignment="Top" RenderTransformOrigin="0.592,0.538" Foreground="#FFEEEEEE" Height="28"/>
-        <Button x:Name="Pick_Button" Content="Random Pick" HorizontalAlignment="Left" Height="35" Margin="652,588,0,0" VerticalAlignment="Top" Width="126" Background="#FF575757" Foreground="#FFEEEEEE" Click="Pick_Button_Click"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="27" Source="Assets/imageLogo.png" Grid.IsSharedSizeScope="True" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True" Margin="9,5,0,0"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="306" Margin="244,145,0,0" VerticalAlignment="Top" Width="309" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
+    <Grid Background="#FF0063B1">
         <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="312,276,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Grid>
+            <Image x:Name="image1" Height="306" Margin="239,156,246,171" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
+            <Grid x:Name="titlebar_Grid" Background="#FF575757" MouseDown="titlebar_Grid_MouseDown" Margin="0,0,0,597" Height="36" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="451*"/>
+                    <ColumnDefinition Width="343*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="image" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="27" Source="Assets/imageLogo.png" Grid.IsSharedSizeScope="True" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True" Margin="9,4,0,0"/>
+                <Label x:Name="label1" Content="Random Picker" Margin="41,4,279.667,0" VerticalAlignment="Top" RenderTransformOrigin="0.592,0.538" Foreground="#FFEEEEEE" Height="28"/>
+                <Grid Height="30" Margin="241.333,5,2,1" Width="100" Grid.Column="1" HorizontalAlignment="Right">
+                    <Button x:Name="button5" Content="" Margin="0,3,76,4" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" RenderTransformOrigin="0.292,0.543" Height="23">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Assets/minimize-windows-icon.gif" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="button" Content="" Margin="30,0,41,2" BorderBrush="{x:Null}" Click="button_Click" HorizontalContentAlignment="Right" Height="28" RenderTransformOrigin="4.534,0.554">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Assets/maximize.gif"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="closeButton" Content="" Margin="63,4,13,4" BorderBrush="{x:Null}" Click="closeButton_Click" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" Height="22" RenderTransformOrigin="0.979,0.136">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Assets/icon-close-128.gif"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid x:Name="menuGrid" HorizontalAlignment="Left" Height="700" VerticalAlignment="Top" Width="239" Background="#FFEEEEEE" Margin="0,800,0,0" Visibility="Visible">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="208*"/>
+                    <ColumnDefinition Width="31*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RenderTransform>
+                    <TranslateTransform />
+                </Grid.RenderTransform>
+                <Button x:Name="Create_Button" Content="  Create" HorizontalAlignment="Left" Height="47" Margin="0,32,0,0" VerticalAlignment="Top" Width="239" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="17.333" HorizontalContentAlignment="Left" Grid.ColumnSpan="2"/>
+                <Button x:Name="Load_Button" Content="  Load" HorizontalAlignment="Left" Height="47" Margin="0,79,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="button2_Click"/>
+                <Button x:Name="View_Button" Content="  View" HorizontalAlignment="Left" Height="47" Margin="0,126,0,0" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" FontSize="17.333" Grid.ColumnSpan="2"/>
+                <Button x:Name="Save_Button" Content="  Save" HorizontalAlignment="Left" Height="47" Margin="0,173,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
+                <GridSplitter x:Name="gridSplitter" Height="238" Margin="0,113,88.576,0" VerticalAlignment="Top" Width="3" RenderTransformOrigin="0.5,0.5" Background="#7F575757">
+                    <GridSplitter.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="89.733"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </GridSplitter.RenderTransform>
+                </GridSplitter>
+                <Label x:Name="label" Content="Recents" HorizontalAlignment="Left" Margin="6,236,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <StackPanel HorizontalAlignment="Left" Height="264" Margin="6,274,0,0" VerticalAlignment="Top" Width="225" Background="#33818080" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Grid Height="53" VerticalAlignment="Bottom" Background="#FFEEEEEE">
+                <TextBox x:Name="Manual_Input" Height="37" Margin="104,7,384,9" TextWrapping="Wrap" Text="Quick Add" Width="306" BorderBrush="#FF575757" Background="Transparent" Foreground="#FF939393" BorderThickness="2" FontSize="20" GotFocus="Manual_Input_GotFocus" HorizontalAlignment="Left"/>
+                <Button x:Name="addButton" Content="+" Margin="409,7,335,9" Width="50" Background="#FF575757" Foreground="#FFEEEEEE" BorderBrush="#FF575757" FontSize="40" FontWeight="Bold" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Padding="1,-13,1,1" Click="addButton_Click" Height="37" HorizontalAlignment="Left"/>
+                <Button x:Name="burgerIcon" Content="" Height="37" Margin="10,8,0,10" Width="44" BorderBrush="{x:Null}" Click="burgerIcon_Click" HorizontalAlignment="Left">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Assets/HamburgerIcon.gif"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="Pick_Button" Content="Random Pick" Height="35" Margin="0,8,10,12" Width="126" Background="#FF575757" Foreground="#FFEEEEEE" Click="Pick_Button_Click" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>
