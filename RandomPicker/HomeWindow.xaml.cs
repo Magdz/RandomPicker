@@ -38,11 +38,11 @@ namespace RandomPicker
         {
             if (Program.getLength() == 0)
             {
-                Picked_Record.Text = null;
+                Picked_Record.Content = null;
                 return;
             }
             int index = (new Random().Next()) % (Program.getLength());
-            Picked_Record.Text = Program.getPick(index);
+            Picked_Record.Content = Program.getPick(index);
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace RandomPicker
             if (Manual_Input.Text != null)
             {
                 Program.AddPick(Manual_Input.Text);
-                Manual_Input.Text = null;
+                Manual_Input.Text = "Quick Add";
             }
         }
 
@@ -70,6 +70,51 @@ namespace RandomPicker
                     line = reader.ReadLine();
                 }
             }
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void titlebar_Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            base.OnMouseLeftButtonDown(e);
+            if (e.ClickCount == 2)
+                AdjustWindowSize();
+            this.DragMove();
+        }
+        private void AdjustWindowSize()
+        {
+            bool isMaximized;
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+                isMaximized = false;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+                isMaximized = true;
+            }
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+        }
+
+        private void Manual_Input_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Manual_Input.Text = null;
+            Manual_Input.Foreground = Brushes.Black;
+        }
+
+        private void Manual_Input_LostFocus(object sender, RoutedEventArgs e)
+        {
+        
         }
     }
 }
