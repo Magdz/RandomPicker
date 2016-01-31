@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -25,13 +26,28 @@ namespace RandomPicker
         {
             InitializeComponent();
         }
-
+        bool isVisible = false;
         private void burgerIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (menuGrid.IsVisible)
-                menuGrid.Visibility = Visibility.Collapsed;
+            Storyboard sbHide = Resources["sbHideGrid"] as Storyboard;
+            Storyboard sbShow = Resources["sbShowGrid"] as Storyboard;
+
+            if (isVisible)
+            {
+                sbHide.Begin(menuGrid);
+                isVisible = false;
+            }   
             else
-                menuGrid.Visibility = Visibility.Visible;
+            {
+                sbShow.Begin(menuGrid);
+                isVisible = true;
+            }
+
+
+            //if (menuGrid.IsVisible)
+            //    menuGrid.Visibility = Visibility.Collapsed;
+            //else
+            //    menuGrid.Visibility = Visibility.Visible;
         }
 
         private void Pick_Button_Click(object sender, RoutedEventArgs e)
