@@ -12,7 +12,11 @@ namespace RandomPicker
     {
         public MainWindow()
         {
+
             InitializeComponent();
+            this.Hide();
+            HomeWindow homeWindow = new HomeWindow();
+            homeWindow.Show();
         }
 
         private void Manual_Clicked(object sender, RoutedEventArgs e)
