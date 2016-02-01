@@ -24,6 +24,7 @@ namespace RandomPicker
     {
         public HomeWindow()
         {
+            Image img = new Image();
             InitializeComponent();
             listBox.ItemsSource = Program.PickingList;
         }
@@ -52,6 +53,8 @@ namespace RandomPicker
         {
             Storyboard sbHide = Resources["sbHideLabel"] as Storyboard;
             Storyboard sbShow = Resources["sbShowLabel"] as Storyboard;
+            Storyboard MaxsbShow = Resources["MaxsbShowLabel"] as Storyboard;
+            Storyboard MaxsbHide = Resources["MaxsbHideLabel"] as Storyboard;
 
             if (Program.getLength() == 0)
             {
@@ -61,17 +64,35 @@ namespace RandomPicker
             }
             if (Program.getLength() == 0)
             {
+
+                if (this.WindowState == WindowState.Maximized)
+                {
+                    MaxsbShow.Begin(warningLabel);
+                    labelIsVisible = true;
+                    return;
+                }
+                else
+                {
                     sbShow.Begin(warningLabel);
                     labelIsVisible = true;
                     return;
-                
+                }
+
             }
             if (Program.getLength() > 0)
             {
                 if (labelIsVisible)
                 {
-                    sbHide.Begin(warningLabel);
-                    labelIsVisible = false;
+                    if (this.WindowState == WindowState.Maximized)
+                    {
+                        MaxsbHide.Begin(warningLabel);
+                        labelIsVisible = false;
+                    }
+                    else
+                    {
+                        sbHide.Begin(warningLabel);
+                        labelIsVisible = false;
+                    }
                 }
             }
             int index = (new Random().Next()) % (Program.getLength());
@@ -121,23 +142,29 @@ namespace RandomPicker
                 AdjustWindowSize();
             this.DragMove();
         }
+
         private void AdjustWindowSize()
         {
-           
-            if (this.WindowState == WindowState.Maximized)
+            Image img = new Image();
+
+            if (this.WindowState != WindowState.Maximized)
             {
-                this.WindowState = WindowState.Normal;
+                img.Source = new BitmapImage(new Uri(@"Assets/normalIcon.png", UriKind.Relative));
+                this.WindowState = WindowState.Maximized;
+                button.Content = img;
             }
             else
             {
-                this.WindowState = WindowState.Maximized;
+                img.Source = new BitmapImage(new Uri(@"Assets/maximize.png", UriKind.Relative));
+                this.WindowState = WindowState.Normal;
+                button.Content = img;
             }
 
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            this.WindowState = WindowState.Maximized;
+            AdjustWindowSize();
         }
 
         private void Manual_Input_GotFocus(object sender, RoutedEventArgs e)
@@ -156,15 +183,23 @@ namespace RandomPicker
         {
             Storyboard sbHide = Resources["sbHideList"] as Storyboard;
             Storyboard sbShow = Resources["sbShowList"] as Storyboard;
+            Storyboard MaxsbHide = Resources["MaxsbHideList"] as Storyboard;
+            Storyboard MaxsbShow = Resources["MaxsbShowList"] as Storyboard;
 
             if (listIsVisible)
             {
-                sbHide.Begin(listGrid);
+                if (this.WindowState == WindowState.Maximized)
+                    MaxsbHide.Begin(listGrid);
+                else
+                    sbHide.Begin(listGrid);
                 listIsVisible = false;
             }
             else
             {
-                sbShow.Begin(listGrid);
+                if (this.WindowState == WindowState.Maximized)
+                    MaxsbShow.Begin(listGrid);
+                else
+                    sbShow.Begin(listGrid);
                 listIsVisible = true;
             }
 
@@ -177,7 +212,7 @@ namespace RandomPicker
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Program.deleteList();
         }
 
         private void listBox_KeyUp(object sender, KeyEventArgs e)
@@ -188,6 +223,11 @@ namespace RandomPicker
                 Program.deletePick(item);
                 updateList();
             }
+        }
+
+        private void minimizeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }

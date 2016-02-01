@@ -5,13 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomPicker"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="633" Width="794" ResizeMode="NoResize" WindowStyle="None">
+        Title="Random Picker" Height="633" Width="794" ResizeMode="NoResize" WindowStyle="None" Icon="Assets/imageLogo.png">
     <Window.Resources>
+
+        <Storyboard x:Key="MaxsbShowList">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="1100,800,0,0" To="1100,310,0,0" DecelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
+        <Storyboard x:Key="MaxsbHideList">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="1100,310,0,0" To="1100,800,0,0" AccelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
+
+        <Storyboard x:Key="MaxsbShowLabel">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,800,0,-47" To="106,678,0,0" DecelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
+        <Storyboard x:Key="MaxsbHideLabel">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,678,0,0" To="106,800,0,-47" AccelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
+
         <Storyboard x:Key="sbShowLabel">
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,643,0,-47" To="106,542,0,0" DecelerationRatio=".5" Duration="0:0:0.8"/>
         </Storyboard>
         <Storyboard x:Key="sbHideLabel">
-            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,542,0,0" To="106,643,0,-47" AccelerationRatio=".5" Duration="0:0:0.8"/>
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,542,0,0" To="106,800,0,-47" AccelerationRatio=".5" Duration="0:0:0.8"/>
+
         </Storyboard>
         <Storyboard x:Key="sbShowGrid">
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,800,0,0" To="0,34,0,0" DecelerationRatio=".5" Duration="0:0:0.8"/>
@@ -43,12 +59,12 @@
                         <RowDefinition Height="22*"/>
                         <RowDefinition Height="9*"/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="button5" Content="" Margin="0,7,86,8" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" RenderTransformOrigin="0.292,0.543" Height="23" HorizontalAlignment="Right" Width="19" Grid.RowSpan="2">
+                    <Button x:Name="minimizeBtn" Content="" Margin="0,5,83,5" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" RenderTransformOrigin="0.292,0.543" HorizontalAlignment="Right" Width="26" Grid.RowSpan="2" Click="minimizeBtn_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="Assets/minimize-windows-icon.gif" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="button" Content="" Margin="86,5,44,5" BorderBrush="{x:Null}" Click="button_Click" HorizontalContentAlignment="Right" Height="28" RenderTransformOrigin="4.534,0.554" Grid.RowSpan="2">
+                    <Button x:Name="button" Content="" Margin="86,5,44,0" BorderBrush="{x:Null}" Click="button_Click" HorizontalContentAlignment="Right" RenderTransformOrigin="4.534,0.554" Grid.RowSpan="2" Height="28" VerticalAlignment="Top">
                         <Button.Background>
                             <ImageBrush ImageSource="Assets/maximize.gif"/>
                         </Button.Background>
@@ -95,14 +111,14 @@
                 </Button>
                 <Button x:Name="Pick_Button" Content="Random Pick" Height="35" Margin="0,8,10,12" Width="126" Background="#FF575757" Foreground="#FFEEEEEE" Click="Pick_Button_Click" HorizontalAlignment="Right"/>
             </Grid>
-            <Grid x:Name="listGrid" Height="374" Margin="522,864,15,-605" VerticalAlignment="Top" Width="257">
+            <Grid x:Name="listGrid" Height="374" Margin="522,864,15,-605" Width="257">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="10,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE" KeyUp="listBox_KeyUp"/>
+                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="10,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE"/>
             </Grid>
-            <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="299,283,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Picked_Record" Content="" Margin="299,283,315,304" Foreground="#FFEEEEEE" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
 
     </Grid>
