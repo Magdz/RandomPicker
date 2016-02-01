@@ -27,6 +27,7 @@ namespace RandomPicker
             Image img = new Image();
             InitializeComponent();
             listBox.ItemsSource = Program.PickingList;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
         bool menuIsVisible = false;
         bool listIsVisible = false;
@@ -214,11 +215,6 @@ namespace RandomPicker
         {
             Program.deleteList();
             updateList();
-        }
-
-        private void listBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void minimizeBtn_Click(object sender, RoutedEventArgs e)
