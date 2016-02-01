@@ -29,6 +29,7 @@ namespace RandomPicker
         }
         bool menuIsVisible = false;
         bool listIsVisible = false;
+        bool labelIsVisible = false;
 
         private void burgerIcon_Click(object sender, RoutedEventArgs e)
         {
@@ -49,14 +50,30 @@ namespace RandomPicker
 
         private void Pick_Button_Click(object sender, RoutedEventArgs e)
         {
+            Storyboard sbHide = Resources["sbHideLabel"] as Storyboard;
+            Storyboard sbShow = Resources["sbShowLabel"] as Storyboard;
+
             if (Program.getLength() == 0)
             {
                 Picked_Record.Content = null;
                 Program.setPickingList();
                 updateList();
-            }    
-            if(Program.getLength() ==0)
+            }
+            if (Program.getLength() == 0)
+            {
+                    sbShow.Begin(warningLabel);
+                    labelIsVisible = true;
+                    return;
                 
+            }
+            if (Program.getLength() > 0)
+            {
+                if (labelIsVisible)
+                {
+                    sbHide.Begin(warningLabel);
+                    labelIsVisible = false;
+                }
+            }
             int index = (new Random().Next()) % (Program.getLength());
             Picked_Record.Content = Program.getPick(index);
             updateList();

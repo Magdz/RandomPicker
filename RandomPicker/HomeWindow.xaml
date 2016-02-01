@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="HomeWindow" Height="633" Width="794" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
+        <Storyboard x:Key="sbShowLabel">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,643,0,-47" To="106,542,0,0" DecelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
+        <Storyboard x:Key="sbHideLabel">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="106,542,0,0" To="106,643,0,-47" AccelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
         <Storyboard x:Key="sbShowGrid">
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,800,0,0" To="0,34,0,0" DecelerationRatio=".5" Duration="0:0:0.8"/>
         </Storyboard>
@@ -23,7 +29,8 @@
 
     <Grid Background="#FF0063B1">
         <Grid>
-            <Image x:Name="image1" Height="306" Margin="243,152,242,175" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
+            <Label x:Name="warningLabel" Content="List is Empty. Please add some elements or upload a list. " HorizontalAlignment="Left" Margin="0,875,0,-279" VerticalAlignment="Top" FontSize="20" Background="#FFFDFBAC" Foreground="#FF3E3E3E"/>
+            <Image x:Name="image1" Height="306" Margin="228,151,257,176" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
             <Grid x:Name="titlebar_Grid" Background="#FF575757" MouseDown="titlebar_Grid_MouseDown" Margin="0,0,0,597" Height="36" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="451*"/>
@@ -88,14 +95,14 @@
                 </Button>
                 <Button x:Name="Pick_Button" Content="Random Pick" Height="35" Margin="0,8,10,12" Width="126" Background="#FF575757" Foreground="#FFEEEEEE" Click="Pick_Button_Click" HorizontalAlignment="Right"/>
             </Grid>
-            <Grid x:Name="listGrid" HorizontalAlignment="Left" Height="374" Margin="537,638,0,0" VerticalAlignment="Top" Width="257">
+            <Grid x:Name="listGrid" Height="374" Margin="522,864,15,-605" VerticalAlignment="Top" Width="257">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="0,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE"/>
+                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="10,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE"/>
             </Grid>
-            <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="243,285,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="299,283,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
 
     </Grid>
