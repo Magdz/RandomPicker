@@ -45,6 +45,15 @@
 
     <Grid Background="#FF0063B1">
         <Grid>
+            <Grid x:Name="listGrid" Height="374" Margin="522,864,15,-605" Width="257">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="256" Margin="10,47,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE" KeyUp="listBox_KeyUp_1"/>
+                <Label x:Name="label2" Content="List of Items" HorizontalAlignment="Left" Margin="10,0,0,327" VerticalAlignment="Bottom" Foreground="#FF575757" FontSize="16" Height="34" Background="#FFEEEEEE"/>
+                <Button x:Name="DeleteItem" Content="Delete Item" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.982,-0.117" BorderBrush="{x:Null}" Background="#FF575757" Foreground="#FFEEEEEE" Click="DeleteItem_Click" Height="24"/>
+            </Grid>
             <Label x:Name="warningLabel" Content="List is Empty. Please add some elements or upload a list. " HorizontalAlignment="Left" Margin="0,875,0,-279" VerticalAlignment="Top" FontSize="20" Background="#FFFDFBAC" Foreground="#FF3E3E3E"/>
             <Image x:Name="image1" Height="306" Margin="228,151,257,176" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
             <Grid x:Name="titlebar_Grid" Background="#FF575757" MouseDown="titlebar_Grid_MouseDown" Margin="0,0,0,597" Height="36" VerticalAlignment="Top">
@@ -110,13 +119,6 @@
                     </Button.Background>
                 </Button>
                 <Button x:Name="Pick_Button" Content="Random Pick" Height="35" Margin="0,8,10,12" Width="126" Background="#FF575757" Foreground="#FFEEEEEE" Click="Pick_Button_Click" HorizontalAlignment="Right"/>
-            </Grid>
-            <Grid x:Name="listGrid" Height="374" Margin="522,864,15,-605" Width="257">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="0*"/>
-                </Grid.ColumnDefinitions>
-                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="10,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE"/>
             </Grid>
             <Label x:Name="Picked_Record" Content="" Margin="299,283,315,304" Foreground="#FFEEEEEE" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>

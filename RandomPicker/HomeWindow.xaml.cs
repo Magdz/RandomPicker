@@ -213,21 +213,35 @@ namespace RandomPicker
         private void Delete_Button_Click(object sender, RoutedEventArgs e)
         {
             Program.deleteList();
+            updateList();
         }
 
         private void listBox_KeyUp(object sender, KeyEventArgs e)
         {
-            String item = listBox.SelectedItem.ToString();
-            if (e.Key == Key.Delete)
-            {
-                Program.deletePick(item);
-                updateList();
-            }
+            
         }
 
         private void minimizeBtn_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void DeleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            String item = listBox.SelectedItem.ToString();
+                Program.deletePick(item);
+                updateList();
+        }
+
+        private void listBox_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            String item;
+            if (e.Key == Key.Delete)
+            {
+                item = listBox.SelectedItem.ToString();
+                Program.deletePick(item);
+                updateList();
+            }
         }
     }
 }
