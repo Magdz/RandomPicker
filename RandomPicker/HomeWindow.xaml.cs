@@ -103,11 +103,18 @@ namespace RandomPicker
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            Storyboard sbHide = Resources["sbHideLabel"] as Storyboard;
+            Storyboard MaxsbHide = Resources["MaxsbHideLabel"] as Storyboard;
+
             if (Manual_Input.Text != null)
             {
                 Program.AddPick(Manual_Input.Text);
                 Manual_Input.Text = "Quick Add";
                 updateList();
+                if (this.WindowState == WindowState.Maximized)
+                { MaxsbHide.Begin(warningLabel); labelIsVisible = false; }
+                else
+                { sbHide.Begin(warningLabel); labelIsVisible = false; }
             }
         }
 
@@ -137,7 +144,6 @@ namespace RandomPicker
 
         private void titlebar_Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
             base.OnMouseLeftButtonDown(e);
             if (e.ClickCount == 2)
                 AdjustWindowSize();
@@ -147,18 +153,46 @@ namespace RandomPicker
         private void AdjustWindowSize()
         {
             Image img = new Image();
+            Storyboard sbHide = Resources["sbHideLabel"] as Storyboard;
+            Storyboard MaxsbHide = Resources["MaxsbHideLabel"] as Storyboard;
+            Storyboard sbHideList = Resources["sbHideList"] as Storyboard;
+            Storyboard sbShowList = Resources["sbShowList"] as Storyboard;
+            Storyboard MaxsbHideList = Resources["MaxsbHideList"] as Storyboard;
+            Storyboard MaxsbShowList = Resources["MaxsbShowList"] as Storyboard;
+
 
             if (this.WindowState != WindowState.Maximized)
             {
+                if (labelIsVisible)
+                {
+                    MaxsbHide.Begin(warningLabel);
+                    labelIsVisible = false;
+                }
                 img.Source = new BitmapImage(new Uri(@"Assets/normalIcon.png", UriKind.Relative));
                 this.WindowState = WindowState.Maximized;
                 button.Content = img;
+                if (listIsVisible)
+                {
+                    MaxsbShowList.Begin(listGrid);
+                    listIsVisible = true;
+                }
+                   
             }
             else
             {
+                if (labelIsVisible)
+                {
+                    sbHide.Begin(warningLabel);
+                    labelIsVisible = false;
+                }
                 img.Source = new BitmapImage(new Uri(@"Assets/maximize.png", UriKind.Relative));
                 this.WindowState = WindowState.Normal;
                 button.Content = img;
+                if (listIsVisible)
+                {
+                    sbShowList.Begin(listGrid);
+                    listIsVisible = true;
+                }
             }
 
         }

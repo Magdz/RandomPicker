@@ -106,8 +106,6 @@
                         </TransformGroup>
                     </GridSplitter.RenderTransform>
                 </GridSplitter>
-                <Label x:Name="label" Content="Recents" HorizontalAlignment="Left" Margin="6,236,0,0" VerticalAlignment="Top" FontSize="16"/>
-                <StackPanel HorizontalAlignment="Left" Height="264" Margin="6,274,0,0" VerticalAlignment="Top" Width="225" Background="#33818080" Grid.ColumnSpan="2"/>
                 <Button x:Name="Delete_Button" Content="  Delete" HorizontalAlignment="Right" Height="47" VerticalAlignment="Top" Width="239" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="17.333" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" Margin="0,176,0,0" Click="Delete_Button_Click"/>
             </Grid>
             <Grid Height="53" VerticalAlignment="Bottom" Background="#FFEEEEEE">
