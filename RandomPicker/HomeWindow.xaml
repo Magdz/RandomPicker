@@ -68,7 +68,7 @@
                 <Grid.RenderTransform>
                     <TranslateTransform />
                 </Grid.RenderTransform>
-                <Button x:Name="Load_Button" Content="  Load" HorizontalAlignment="Left" Height="47" Margin="0,35,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="button2_Click"/>
+                <Button x:Name="Load_Button" Content="  Load" HorizontalAlignment="Left" Height="47" Margin="0,35,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="Load_Click"/>
                 <Button x:Name="View_Button" Content="  View" HorizontalAlignment="Left" Height="47" Margin="0,82,0,0" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" FontSize="17.333" Grid.ColumnSpan="2" Click="View_Button_Click"/>
                 <Button x:Name="Save_Button" Content="  Save" HorizontalAlignment="Left" Height="47" Margin="0,129,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
                 <GridSplitter x:Name="gridSplitter" Height="238" Margin="0,113,88.576,0" VerticalAlignment="Top" Width="3" RenderTransformOrigin="0.5,0.5" Background="#7F575757">

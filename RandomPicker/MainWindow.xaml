@@ -5,26 +5,4 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomPicker"
         mc:Ignorable="d"
-        Title="Random Picker v1.0" Height="400" Width="300" ResizeMode="NoResize">
-    <Grid Margin="0">
-        <Grid.Background>
-            <ImageBrush ImageSource="Assets/hazard-stripes-texture.jpg"/>
-        </Grid.Background>
-        <Button x:Name="Pick_Button" Content="" Margin="90,160,0,0" Width="120" Height="120" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Pick_Button_Click">
-            <Button.OpacityMask>
-                <ImageBrush ImageSource="Assets/Button-Released.png"/>
-            </Button.OpacityMask>
-            <Button.Background>
-                <ImageBrush ImageSource="Assets/Button-Released.png"/>
-            </Button.Background>
-        </Button>
-        <TextBox x:Name="Picked_Record" HorizontalAlignment="Left" Height="23" Margin="90,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" IsReadOnly="True"/>
-        <DockPanel HorizontalAlignment="Left" Height="20" LastChildFill="False" VerticalAlignment="Top" Width="294">
-            <Menu x:Name="menu" Height="20" Width="296">
-                <MenuItem Header="Manual" Click="Manual_Clicked"/>
-                <MenuItem Header="Load" Click="Load_Clicked" />
-            </Menu>
-        </DockPanel>
-
-    </Grid>
-</Window>
+        Title="Random Picker v1.0" Height="400" Width="300" ResizeMode="NoResize"/>

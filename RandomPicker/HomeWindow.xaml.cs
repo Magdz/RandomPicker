@@ -89,7 +89,7 @@ namespace RandomPicker
             }
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void Load_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text File | *.txt| Excel | *.xlsx";
@@ -127,12 +127,10 @@ namespace RandomPicker
             if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
-               
             }
             else
             {
                 this.WindowState = WindowState.Maximized;
-                
             }
 
         }

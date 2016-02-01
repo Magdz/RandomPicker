@@ -111,12 +111,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\hazard-stripes-texture.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Button-Released.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\icon-close-128.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
