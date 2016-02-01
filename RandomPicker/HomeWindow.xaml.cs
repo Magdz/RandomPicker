@@ -25,29 +25,26 @@ namespace RandomPicker
         public HomeWindow()
         {
             InitializeComponent();
+            listBox.ItemsSource = Program.PickingList;
         }
-        bool isVisible = false;
+        bool menuIsVisible = false;
+        bool listIsVisible = false;
+
         private void burgerIcon_Click(object sender, RoutedEventArgs e)
         {
             Storyboard sbHide = Resources["sbHideGrid"] as Storyboard;
             Storyboard sbShow = Resources["sbShowGrid"] as Storyboard;
-
-            if (isVisible)
+            
+            if (menuIsVisible)
             {
                 sbHide.Begin(menuGrid);
-                isVisible = false;
+                menuIsVisible = false;
             }   
             else
             {
                 sbShow.Begin(menuGrid);
-                isVisible = true;
+                menuIsVisible = true;
             }
-
-
-            //if (menuGrid.IsVisible)
-            //    menuGrid.Visibility = Visibility.Collapsed;
-            //else
-            //    menuGrid.Visibility = Visibility.Visible;
         }
 
         private void Pick_Button_Click(object sender, RoutedEventArgs e)
@@ -55,10 +52,14 @@ namespace RandomPicker
             if (Program.getLength() == 0)
             {
                 Picked_Record.Content = null;
-                return;
-            }
+                Program.setPickingList();
+                updateList();
+            }    
+            if(Program.getLength() ==0)
+                
             int index = (new Random().Next()) % (Program.getLength());
             Picked_Record.Content = Program.getPick(index);
+            updateList();
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
@@ -67,6 +68,7 @@ namespace RandomPicker
             {
                 Program.AddPick(Manual_Input.Text);
                 Manual_Input.Text = "Quick Add";
+                updateList();
             }
         }
 
@@ -86,6 +88,7 @@ namespace RandomPicker
                     line = reader.ReadLine();
                 }
             }
+            updateList();
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -103,16 +106,16 @@ namespace RandomPicker
         }
         private void AdjustWindowSize()
         {
-            bool isMaximized;
+           
             if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
-                isMaximized = false;
+               
             }
             else
             {
                 this.WindowState = WindowState.Maximized;
-                isMaximized = true;
+                
             }
 
         }
@@ -128,9 +131,38 @@ namespace RandomPicker
             Manual_Input.Foreground = Brushes.Black;
         }
 
-        private void Manual_Input_LostFocus(object sender, RoutedEventArgs e)
+        private void updateList()
         {
-        
+            listBox.SetBinding(ListBox.ItemsSourceProperty, new Binding());
+            listBox.ItemsSource = Program.PickingList;
+        }
+
+        private void View_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard sbHide = Resources["sbHideList"] as Storyboard;
+            Storyboard sbShow = Resources["sbShowList"] as Storyboard;
+
+            if (listIsVisible)
+            {
+                sbHide.Begin(listGrid);
+                listIsVisible = false;
+            }
+            else
+            {
+                sbShow.Begin(listGrid);
+                listIsVisible = true;
+            }
+
+        }
+
+        private void Create_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

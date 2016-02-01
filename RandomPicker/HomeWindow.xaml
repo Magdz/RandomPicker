@@ -13,12 +13,17 @@
         <Storyboard x:Key="sbHideGrid">
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,34,0,0" To="0,800,0,0" AccelerationRatio=".5" Duration="0:0:0.8"/>
         </Storyboard>
+        <Storyboard x:Key="sbHideList">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="537,217,0,0" To="537,638,0,0" AccelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
+        <Storyboard x:Key="sbShowList">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="537,638,0,0" To="537,217,0,0" AccelerationRatio=".5" Duration="0:0:0.8"/>
+        </Storyboard>
     </Window.Resources>
 
     <Grid Background="#FF0063B1">
-        <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="312,276,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Grid>
-            <Image x:Name="image1" Height="306" Margin="239,156,246,171" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
+            <Image x:Name="image1" Height="306" Margin="243,152,242,175" Source="Assets/Circles.png" UseLayoutRounding="True" ScrollViewer.CanContentScroll="True" Grid.IsSharedSizeScope="True"/>
             <Grid x:Name="titlebar_Grid" Background="#FF575757" MouseDown="titlebar_Grid_MouseDown" Margin="0,0,0,597" Height="36" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="451*"/>
@@ -26,18 +31,22 @@
                 </Grid.ColumnDefinitions>
                 <Image x:Name="image" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="27" Source="Assets/imageLogo.png" Grid.IsSharedSizeScope="True" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True" Margin="9,4,0,0"/>
                 <Label x:Name="label1" Content="Random Picker" Margin="41,4,279.667,0" VerticalAlignment="Top" RenderTransformOrigin="0.592,0.538" Foreground="#FFEEEEEE" Height="28"/>
-                <Grid Height="30" Margin="241.333,5,2,1" Width="100" Grid.Column="1" HorizontalAlignment="Right">
-                    <Button x:Name="button5" Content="" Margin="0,3,76,4" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" RenderTransformOrigin="0.292,0.543" Height="23">
+                <Grid Margin="0,0,0,-2" Width="160" Grid.Column="1" HorizontalAlignment="Right">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="button5" Content="" Margin="0,7,86,8" BorderBrush="{x:Null}" HorizontalContentAlignment="Right" RenderTransformOrigin="0.292,0.543" Height="23" HorizontalAlignment="Right" Width="19" Grid.RowSpan="2">
                         <Button.Background>
                             <ImageBrush ImageSource="Assets/minimize-windows-icon.gif" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="button" Content="" Margin="30,0,41,2" BorderBrush="{x:Null}" Click="button_Click" HorizontalContentAlignment="Right" Height="28" RenderTransformOrigin="4.534,0.554">
+                    <Button x:Name="button" Content="" Margin="86,5,44,5" BorderBrush="{x:Null}" Click="button_Click" HorizontalContentAlignment="Right" Height="28" RenderTransformOrigin="4.534,0.554" Grid.RowSpan="2">
                         <Button.Background>
                             <ImageBrush ImageSource="Assets/maximize.gif"/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="closeButton" Content="" Margin="63,4,13,4" BorderBrush="{x:Null}" Click="closeButton_Click" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" Height="22" RenderTransformOrigin="0.979,0.136">
+                    <Button x:Name="closeButton" Content="" Margin="124,8,13,8" BorderBrush="{x:Null}" Click="closeButton_Click" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" Height="22" RenderTransformOrigin="0.979,0.136" Grid.RowSpan="2">
                         <Button.Background>
                             <ImageBrush ImageSource="Assets/icon-close-128.gif"/>
                         </Button.Background>
@@ -52,10 +61,9 @@
                 <Grid.RenderTransform>
                     <TranslateTransform />
                 </Grid.RenderTransform>
-                <Button x:Name="Create_Button" Content="  Create" HorizontalAlignment="Left" Height="47" Margin="0,32,0,0" VerticalAlignment="Top" Width="239" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="17.333" HorizontalContentAlignment="Left" Grid.ColumnSpan="2"/>
-                <Button x:Name="Load_Button" Content="  Load" HorizontalAlignment="Left" Height="47" Margin="0,79,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="button2_Click"/>
-                <Button x:Name="View_Button" Content="  View" HorizontalAlignment="Left" Height="47" Margin="0,126,0,0" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" FontSize="17.333" Grid.ColumnSpan="2"/>
-                <Button x:Name="Save_Button" Content="  Save" HorizontalAlignment="Left" Height="47" Margin="0,173,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
+                <Button x:Name="Load_Button" Content="  Load" HorizontalAlignment="Left" Height="47" Margin="0,35,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Click="button2_Click"/>
+                <Button x:Name="View_Button" Content="  View" HorizontalAlignment="Left" Height="47" Margin="0,82,0,0" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" FontSize="17.333" Grid.ColumnSpan="2" Click="View_Button_Click"/>
+                <Button x:Name="Save_Button" Content="  Save" HorizontalAlignment="Left" Height="47" Margin="0,129,0,0" VerticalAlignment="Top" Width="239" HorizontalContentAlignment="Left" FontSize="17.333" Background="{x:Null}" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
                 <GridSplitter x:Name="gridSplitter" Height="238" Margin="0,113,88.576,0" VerticalAlignment="Top" Width="3" RenderTransformOrigin="0.5,0.5" Background="#7F575757">
                     <GridSplitter.RenderTransform>
                         <TransformGroup>
@@ -68,6 +76,7 @@
                 </GridSplitter>
                 <Label x:Name="label" Content="Recents" HorizontalAlignment="Left" Margin="6,236,0,0" VerticalAlignment="Top" FontSize="16"/>
                 <StackPanel HorizontalAlignment="Left" Height="264" Margin="6,274,0,0" VerticalAlignment="Top" Width="225" Background="#33818080" Grid.ColumnSpan="2"/>
+                <Button x:Name="Delete_Button" Content="  Delete" HorizontalAlignment="Right" Height="47" VerticalAlignment="Top" Width="239" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="17.333" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" Margin="0,176,0,0" Click="Delete_Button_Click"/>
             </Grid>
             <Grid Height="53" VerticalAlignment="Bottom" Background="#FFEEEEEE">
                 <TextBox x:Name="Manual_Input" Height="37" Margin="104,7,384,9" TextWrapping="Wrap" Text="Quick Add" Width="306" BorderBrush="#FF575757" Background="Transparent" Foreground="#FF939393" BorderThickness="2" FontSize="20" GotFocus="Manual_Input_GotFocus" HorizontalAlignment="Left"/>
@@ -79,6 +88,14 @@
                 </Button>
                 <Button x:Name="Pick_Button" Content="Random Pick" Height="35" Margin="0,8,10,12" Width="126" Background="#FF575757" Foreground="#FFEEEEEE" Click="Pick_Button_Click" HorizontalAlignment="Right"/>
             </Grid>
+            <Grid x:Name="listGrid" HorizontalAlignment="Left" Height="374" Margin="537,638,0,0" VerticalAlignment="Top" Width="257">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="0,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE"/>
+            </Grid>
+            <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="243,285,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
 
     </Grid>
