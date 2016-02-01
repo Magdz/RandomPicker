@@ -95,8 +95,7 @@ namespace RandomPicker
                     }
                 }
             }
-            int index = (new Random().Next()) % (Program.getLength());
-            Picked_Record.Content = Program.getPick(index);
+            Picked_Record.Content = Program.getPick();
             updateList();
         }
 
@@ -202,11 +201,6 @@ namespace RandomPicker
                     sbShow.Begin(listGrid);
                 listIsVisible = true;
             }
-
-        }
-
-        private void Create_Button_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 

@@ -32,9 +32,11 @@ namespace RandomPicker
             PickingList.Remove(item);
             OriginalList.Remove(item);
         }
-        public static string getPick(int index)
+
+        public static string getPick()
         {
-            String Picked = PickingList[index].ToString();
+            Shuffle();
+            String Picked = PickingList[0].ToString();
             if (DeleteOnPick) PickingList.Remove(Picked);
             return Picked;
         }
@@ -47,6 +49,17 @@ namespace RandomPicker
         public static int getLength()
         {
             return PickingList.Count;
+        }
+
+        private static void Shuffle()
+        {
+            for (int i = 0; i < PickingList.Count; ++i)
+            {
+                int Key = new Random().Next(i + 1);
+                String Temp = PickingList[i];
+                PickingList[i] = PickingList[Key];
+                PickingList[Key] = Temp;
+            }
         }
     }
 }
