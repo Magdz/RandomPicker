@@ -179,5 +179,15 @@ namespace RandomPicker
         {
 
         }
+
+        private void listBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            String item = listBox.SelectedItem.ToString();
+            if (e.Key == Key.Delete)
+            {
+                Program.deletePick(item);
+                updateList();
+            }
+        }
     }
 }

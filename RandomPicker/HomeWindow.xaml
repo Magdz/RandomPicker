@@ -100,7 +100,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
-                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="10,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE"/>
+                <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="354" Margin="10,10,0,0" VerticalAlignment="Top" Width="247" Background="#FFEEEEEE" KeyUp="listBox_KeyUp"/>
             </Grid>
             <Label x:Name="Picked_Record" Content="" HorizontalAlignment="Left" Margin="299,283,0,0" VerticalAlignment="Top" Width="180" Foreground="#FFEEEEEE" Height="46" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>

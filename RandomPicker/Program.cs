@@ -27,6 +27,11 @@ namespace RandomPicker
             OriginalList.Add(Record);
         }
 
+        public static void deletePick(String item)
+        {
+            PickingList.Remove(item);
+            OriginalList.Remove(item);
+        }
         public static string getPick(int index)
         {
             String Picked = PickingList[index].ToString();
