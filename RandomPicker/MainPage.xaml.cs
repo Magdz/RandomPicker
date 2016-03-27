@@ -25,6 +25,9 @@ namespace RandomPicker
         public MainPage()
         {
             this.InitializeComponent();
+            Hide();
+            HomeWindow homeWindow = new HomeWindow();
+            homeWindow.Show();
         }
     }
 }
